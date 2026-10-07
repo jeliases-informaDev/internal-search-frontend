@@ -1,0 +1,23 @@
+@if (items().children && items().children!.length > 0) {
+    <li class="menu-node">
+        <details open>
+            <summary class="menu-entry" [class.active-group]="isActive()">
+                <span class="menu-icon" aria-hidden="true"><app-icons [name]="menuIcon()" klass="h-4 w-4" [strokeWidth]="1.8" /></span>
+                <span class="entry-label">{{ items().nomMenu }}</span>
+                <svg class="chevron" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="m9 5 7 7-7 7" /></svg>
+            </summary>
+            <ul class="submenu">
+                @for (child of items().children; track child.codMenu) {
+                    <app-sidebarmenu [items]="child" [level]="level() + 1" />
+                }
+            </ul>
+        </details>
+    </li>
+} @else {
+    <li class="menu-node">
+        <a class="menu-entry" [class.child-entry]="level() > 0" [routerLink]="routeSegments()" routerLinkActive="selected" ariaCurrentWhenActive="page">
+            <span class="menu-icon" aria-hidden="true"><app-icons [name]="menuIcon()" klass="h-4 w-4" [strokeWidth]="1.8" /></span>
+            <span class="entry-label">{{ items().nomMenu }}</span>
+        </a>
+    </li>
+}

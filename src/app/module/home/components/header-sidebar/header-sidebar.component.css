@@ -1,0 +1,50 @@
+.sidebar-header {
+    background: transparent;
+    font-family: var(--font-brand);
+}
+
+/* Fondo del sidebar: azul de marca */
+.app-sidebar,
+.drawer-side .menu {
+    background: var(--navy);
+    color: #ffffff;
+    font-family: var(--font-brand);
+}
+
+/* Items del menú */
+.app-sidebar a,
+.drawer-side .menu a {
+    color: var(--blue-25);
+    font-weight: 400;
+    border-radius: 8px;
+    transition: background-color 0.15s ease, color 0.15s ease;
+}
+
+.app-sidebar a:hover,
+.drawer-side .menu a:hover {
+    background: rgba(255, 255, 255, 0.1);
+    color: #ffffff;
+}
+
+/* Item activo */
+.app-sidebar a.is-active,
+.app-sidebar a[aria-current="page"],
+.drawer-side .menu a.is-active,
+.drawer-side .menu a[aria-current="page"] {
+    background: #ffffff;
+    color: var(--navy);
+    font-weight: 700;
+}
+
+.app-sidebar a:focus-visible,
+.drawer-side .menu a:focus-visible {
+    outline: 2px solid #ffffff;
+    outline-offset: 2px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .app-sidebar a,
+    .drawer-side .menu a {
+        transition: none;
+    }
+}

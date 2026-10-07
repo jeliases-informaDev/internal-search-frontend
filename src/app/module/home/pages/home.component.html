@@ -1,0 +1,33 @@
+
+<div class="drawer lg:drawer-open bg-white">
+    <input id="lx-drawer" type="checkbox" class="drawer-toggle" checked />
+
+    <!-- MAIN CONTENT -->
+    <div class="drawer-content flex flex-col min-h-screen">
+        <app-nav-bar />
+
+        <main class="flex-1 overflow-y-auto px-3 py-4">
+            <router-outlet />
+        </main>
+    </div>
+    <!-- SIDEBAR -->
+    <div class="drawer-side z-40">
+        <label for="lx-drawer" aria-label="cerrar menú" class="drawer-overlay"></label>
+        <aside class="app-sidebar flex min-h-screen flex-col bg-[#153670] text-white">
+
+            <app-header-sidebar  />
+
+
+            <nav class="sidebar-navigation flex-1 min-h-0">
+                <p class="sidebar-label">CONSULTAS</p>
+
+                <ul class="sidebar-menu">
+                    @for (item of items(); track item.codMenu) {
+                        <app-sidebarmenu [items]="item" [level]="0" />
+                    }
+                </ul>
+            </nav>
+            <app-logout />
+        </aside>
+    </div>
+</div>
